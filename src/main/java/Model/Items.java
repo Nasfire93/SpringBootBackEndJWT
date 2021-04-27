@@ -1,4 +1,4 @@
-package Pojos;
+package Model;
 
 import java.math.BigInteger;
 import java.time.LocalDate;

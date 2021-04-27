@@ -1,4 +1,4 @@
-package SpringSecurity;
+package Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,12 +11,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
     @Configuration
     @EnableWebSecurity
-    public class WebSecurity extends WebSecurityConfigurerAdapter {
+    public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-
+            
             auth.inMemoryAuthentication().withUser("pepe").password(passwordEncoder().encode("pepe")).roles("pepe");
             auth.inMemoryAuthentication()
                     .withUser("user").password(passwordEncoder().encode("user")).roles("NEW")
@@ -32,7 +31,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
         @Override
         public void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/login2").hasRole("pepe")
+                    .antMatchers("/welcome").hasRole("pepe")
                     .and().formLogin();
         }
     }

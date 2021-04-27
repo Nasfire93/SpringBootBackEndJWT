@@ -1,6 +1,4 @@
-package config;
-
-import SpringSecurity.WebSecurity;
+import Config.SecurityConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +6,7 @@ import org.springframework.context.annotation.Import;
 
 
 @Configuration
-@Import({ WebSecurity.class })
+@Import({ SecurityConfig.class })
 @SpringBootApplication
 public class BitboxApplication {
 	public static void main(String[] args) {
