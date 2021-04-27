@@ -1,4 +1,4 @@
-package Enums;
+package Pojos;
 
 import java.time.LocalDate;
 
