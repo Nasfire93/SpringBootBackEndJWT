@@ -27,7 +27,7 @@ public class Users {
     @NonNull
     private LocalDate dateup;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(	name = "USER_ROLES",
             joinColumns = @JoinColumn(name = "userId"),
             inverseJoinColumns = @JoinColumn(name = "roleId"))

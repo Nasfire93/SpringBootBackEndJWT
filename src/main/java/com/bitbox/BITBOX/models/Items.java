@@ -28,8 +28,8 @@ public class Items {
         @NonNull
         private String state;
 
-        @OneToMany(mappedBy = "item")
-        private List<ItemsVendor> suppliers;
+        @ManyToMany
+        private List<Vendor> vendor;
 
         @OneToMany(mappedBy = "item")
         private List<PriceReduction> priceReductions;

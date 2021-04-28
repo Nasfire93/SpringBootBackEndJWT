@@ -5,12 +5,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-
+/*
 @Data
 @NoArgsConstructor
 //@RequiredArgsConstructor
 @Entity
 @Table(name = "ITEMS_VENDOR")
+
 public class ItemsVendor {
     @Id
     @GeneratedValue
@@ -21,8 +22,8 @@ public class ItemsVendor {
 
     @ManyToOne
     @JoinColumn(name="idVendor", nullable=false)
-    private Supliers vendor;
+    private Vendor vendor;
 
-}
+}*/
 
 

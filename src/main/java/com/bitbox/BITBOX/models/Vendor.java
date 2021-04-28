@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "VENDOR")
-public class Supliers {
+public class Vendor {
 
     @Id
     @GeneratedValue
@@ -26,9 +26,8 @@ public class Supliers {
     @NonNull
     private String country;
 
-    @NonNull
-    @OneToMany(mappedBy = "vendor")
-    private List<ItemsVendor> items;
+    @ManyToMany
+    private List<Items> items;
 
 
 }
