@@ -1,8 +1,7 @@
-package com.bitbox.BITBOX.domain;
+package com.bitbox.BITBOX.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigInteger;

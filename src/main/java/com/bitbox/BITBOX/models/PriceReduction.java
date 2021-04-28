@@ -1,4 +1,4 @@
-package com.bitbox.BITBOX.domain;
+package com.bitbox.BITBOX.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.bitbox.BITBOX.Config;
+package com.bitbox.BITBOX.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
