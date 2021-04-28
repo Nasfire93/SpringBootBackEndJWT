@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDate;
 
@@ -17,19 +14,26 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "PRICE_REDUCTION")
-public class PriceProductsReduction {
+public class PriceReduction {
 
     @Id
     @GeneratedValue
-    private BigInteger itemsId;
+    private BigInteger priceReductionId;
 
     @NonNull
-    private float reducedPrice;
+    private String creator;
 
     @NonNull
-    private LocalDate startDate;
+    private float reducedprice;
 
     @NonNull
-    private LocalDate endDate;
+    private LocalDate datestart;
+
+    @NonNull
+    private LocalDate dateend;
+
+    @ManyToOne
+    @JoinColumn(name = "idItems")
+    private Items item;
 
 }

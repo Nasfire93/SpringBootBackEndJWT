@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -30,5 +27,8 @@ public class Supliers {
     private String country;
 
     @NonNull
-    private List<Items> items;
+    @OneToMany(mappedBy = "vendor")
+    private List<ItemsVendor> items;
+
+
 }

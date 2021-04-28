@@ -28,11 +28,11 @@ public class Items {
         @NonNull
         private String state;
 
-        @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-        private List<Supliers> suppliers;
+        @OneToMany(mappedBy = "item")
+        private List<ItemsVendor> suppliers;
 
-        @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-        private List<PriceProductsReduction> priceReductions;
+        @OneToMany(mappedBy = "item")
+        private List<PriceReduction> priceReductions;
 
         @NonNull
         private LocalDate creationDate;
