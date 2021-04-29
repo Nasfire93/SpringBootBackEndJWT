@@ -1,5 +1,6 @@
 package com.bitbox.BITBOX.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -34,6 +35,7 @@ public class PriceReduction {
 
     @ManyToOne
     @JoinColumn(name = "idItems")
+    @JsonBackReference
     private Items item;
 
 }

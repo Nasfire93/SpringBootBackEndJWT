@@ -1,5 +1,6 @@
 package com.bitbox.BITBOX.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -27,6 +28,7 @@ public class Vendor {
     private String country;
 
     @OneToMany(mappedBy = "vendor")
+    @JsonBackReference
     private List<Items> items;
 
 
