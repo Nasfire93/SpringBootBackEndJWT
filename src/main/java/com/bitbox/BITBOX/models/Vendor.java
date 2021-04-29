@@ -26,7 +26,7 @@ public class Vendor {
     @NonNull
     private String country;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "vendor")
     private List<Items> items;
 
 

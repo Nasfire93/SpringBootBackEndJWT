@@ -1,6 +1,6 @@
 package com.bitbox.BITBOX.models;
 
-enum ERole {
+public enum RoleEnum {
     ROLE_USER,
     ROLE_ADMIN
 }

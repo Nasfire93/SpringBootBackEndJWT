@@ -1,5 +1,6 @@
 package com.bitbox.BITBOX.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -28,10 +29,12 @@ public class Items {
         @NonNull
         private String state;
 
-        @ManyToMany
-        private List<Vendor> vendor;
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "items")
+        @JsonBackReference
+        private Vendor vendor;
 
-        @OneToMany(mappedBy = "item")
+        @OneToMany(fetch = FetchType.EAGER, mappedBy = "item")
         private List<PriceReduction> priceReductions;
 
         @NonNull
