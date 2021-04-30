@@ -18,7 +18,7 @@ import java.util.List;
 public class Vendor {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger vendorId;
 
     @NonNull

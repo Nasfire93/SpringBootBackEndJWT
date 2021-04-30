@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.omg.CORBA.portable.IDLEntity;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDate;
@@ -17,7 +19,7 @@ import java.util.List;
 @Table(name = "ITEMS")
 public class Items {
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private BigInteger itemsId;
 
         @NonNull

@@ -17,15 +17,19 @@ import java.util.Set;
 @Table(name = "USER")
 public class Users {
     @Id
+    @NonNull
     private String dni;
-    @NonNull
+
+
     private String name;
-    @NonNull
-    private String surname;
+    //@NonNull
+    //private String surname;
     @NonNull
     private String email;
+    //@NonNull
+    //private LocalDate dateup;
     @NonNull
-    private LocalDate dateup;
+    private String password;
 
     @ManyToMany
     @JoinTable(	name = "USER_ROLES",
