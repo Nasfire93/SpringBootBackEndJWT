@@ -12,15 +12,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import com.bitbox.BITBOX.security.services.UserDetailsImpl;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${PEPE}")
+    @Value("${app.secretn}")
     private String jwtSecret;
 
-    @Value("${PEPE}")
+    @Value("${app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
     public String generateJwtToken(Authentication authentication) {

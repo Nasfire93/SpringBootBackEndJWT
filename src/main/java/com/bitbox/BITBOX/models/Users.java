@@ -19,8 +19,7 @@ public class Users {
     @Id
     @NonNull
     private String dni;
-
-
+    @NonNull
     private String name;
     //@NonNull
     //private String surname;

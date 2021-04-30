@@ -7,7 +7,10 @@ import lombok.Setter;
 import java.util.Set;
 
 public class SignupRequest {
-
+    @NonNull
+    @Getter
+    @Setter
+    public String dni;
     @NonNull
     @Getter
     @Setter

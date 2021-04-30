@@ -87,13 +87,13 @@ public class LoginController {
             }
 
             // Create new user's account
-            Users user = new Users(signUpRequest.getName(),
+            Users user = new Users(signUpRequest.getDni(),signUpRequest.getName(),
                     signUpRequest.getEmail(),
                     encoder.encode(signUpRequest.getPassword()));
 
             Set<String> strRoles = signUpRequest.getRole();
             Set<Role> roles = new HashSet<>();
-
+            System.out.println();
             if (strRoles == null) {
                 Role userRole = roleDAO.findByName(RoleEnum.ROLE_USER)
                         .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
