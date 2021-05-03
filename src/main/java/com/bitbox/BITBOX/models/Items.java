@@ -36,7 +36,7 @@ public class Items {
         @JsonBackReference
         private Vendor vendor;
 
-        @OneToMany(fetch = FetchType.EAGER, mappedBy = "item")
+        @OneToMany(fetch = FetchType.EAGER, mappedBy = "item", cascade = CascadeType.ALL)
         @JsonBackReference
         private List<PriceReduction> priceReductions;
 

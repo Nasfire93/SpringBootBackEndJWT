@@ -10,12 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.lang.reflect.Type;
 import java.math.BigInteger;
 import java.time.LocalDate;
 
 @CrossOrigin("*")
 @Controller
+@RequestMapping("/items")
 public class ItemListController {
     @Autowired
     ItemsDAO itemsDAO;
@@ -36,18 +38,26 @@ public class ItemListController {
 
         return ResponseEntity.ok(itemsDAO.findAll());
     }
+
     @GetMapping("/findItem")
     public ResponseEntity<?> findById(@RequestParam(name ="id",required = false) BigInteger id, Model model) {
 
         return ResponseEntity.ok(itemsDAO.findByItemsId(id));
     }
-    @PostMapping(path = "/addItem",consumes = "application/json")
+
+    @PostMapping(path = "/addItem")
     public ResponseEntity<?> addItem(@RequestBody String data){
         Items item = gson.fromJson(data, Items.class);
-        item.setCreator("pepe");
-        item.setVendor(vendorDAO.findByVendorId(new BigInteger("1")));
+        //item.setVendor(vendorDAO.findByVendorId(new BigInteger("1")));
         //item.setItemsId(itemsDAO.findTopByOrderByItemsIdDesc().getItemsId().add(new BigInteger("1")));
         itemsDAO.save(item);
+        return ResponseEntity.ok("");
+    }
+
+    @PostMapping(path = "/deleteItem")
+    public ResponseEntity<?> deleteItem(@RequestBody String data){
+        Items item = gson.fromJson(data, Items.class);
+        itemsDAO.delete(itemsDAO.findByItemsId(item.getItemsId()));
         return ResponseEntity.ok("");
     }
 }

@@ -8,4 +8,6 @@ import java.math.BigInteger;
 public interface ItemsDAO extends CrudRepository<Items, BigInteger> {
     Items findByItemsId(BigInteger id);
     Items findTopByOrderByItemsIdDesc();
+    void deleteByItemsId(BigInteger id);
+
 }
