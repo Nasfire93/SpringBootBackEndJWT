@@ -31,13 +31,13 @@ public class Items {
         @NonNull
         private String state;
 
+
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "items")
-        @JsonBackReference
+        @NonNull
         private Vendor vendor;
 
         @OneToMany(fetch = FetchType.EAGER, mappedBy = "item", cascade = CascadeType.ALL)
-        @JsonBackReference
         private List<PriceReduction> priceReductions;
 
         @NonNull

@@ -48,16 +48,15 @@ public class ItemListController {
     @PostMapping(path = "/addItem")
     public ResponseEntity<?> addItem(@RequestBody String data){
         Items item = gson.fromJson(data, Items.class);
-        //item.setVendor(vendorDAO.findByVendorId(new BigInteger("1")));
-        //item.setItemsId(itemsDAO.findTopByOrderByItemsIdDesc().getItemsId().add(new BigInteger("1")));
+        //gson.fromJson(data,null).
         itemsDAO.save(item);
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok(item);
     }
 
     @PostMapping(path = "/deleteItem")
     public ResponseEntity<?> deleteItem(@RequestBody String data){
         Items item = gson.fromJson(data, Items.class);
         itemsDAO.delete(itemsDAO.findByItemsId(item.getItemsId()));
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok(item);
     }
 }
