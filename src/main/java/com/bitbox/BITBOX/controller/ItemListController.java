@@ -48,7 +48,7 @@ public class ItemListController {
     @PostMapping(path = "/addItem")
     public ResponseEntity<?> addItem(@RequestBody String data){
         Items item = gson.fromJson(data, Items.class);
-        //gson.fromJson(data,null).
+        System.out.println(item);
         itemsDAO.save(item);
         return ResponseEntity.ok(item);
     }
