@@ -27,7 +27,7 @@ public class Vendor {
     @NonNull
     private String country;
 
-    @OneToMany(mappedBy = "vendor")
+    @ManyToMany(mappedBy = "vendor")
     @JsonBackReference
     private List<Items> items;
 

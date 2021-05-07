@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,7 +19,7 @@ import java.time.LocalDate;
 public class PriceReduction {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger priceReductionId;
 
     @NonNull
@@ -33,9 +34,8 @@ public class PriceReduction {
     @NonNull
     private LocalDate dateend;
 
-    @ManyToOne
-    @JoinColumn(name = "idItems")
+    @ManyToMany(mappedBy = "priceReductions")
     @JsonBackReference
-    private Items item;
+    private List<Items> items;
 
 }

@@ -32,12 +32,19 @@ public class Items {
         private String state;
 
 
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "items")
+        @ManyToMany
+        @JoinTable(
+                name = "items_vendors",
+                joinColumns = @JoinColumn(name = "items"),
+                inverseJoinColumns = @JoinColumn(name = "vendor"))
         @NonNull
-        private Vendor vendor;
+        private List<Vendor> vendor;
 
-        @OneToMany(fetch = FetchType.EAGER, mappedBy = "item", cascade = CascadeType.ALL)
+        @ManyToMany
+        @JoinTable(
+                name = "items_reductionprice",
+                joinColumns = @JoinColumn(name = "items"),
+                inverseJoinColumns = @JoinColumn(name = "priceReductions"))
         private List<PriceReduction> priceReductions;
 
         @NonNull
