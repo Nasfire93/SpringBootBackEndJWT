@@ -23,6 +23,9 @@ public class PriceReduction {
     private BigInteger priceReductionId;
 
     @NonNull
+    private String name;
+
+    @NonNull
     private String creator;
 
     @NonNull
